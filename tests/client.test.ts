@@ -62,4 +62,14 @@ describe('VosFacturesClient', () => {
       })
     );
   });
+
+  it('lève une erreur si la réponse n\'est pas du JSON valide', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => { throw new SyntaxError('Unexpected token'); },
+    }));
+
+    await expect(client.get('/invoices.json')).rejects.toThrow('Réponse non-JSON reçue du serveur VosFactures (200)');
+  });
 });

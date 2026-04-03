@@ -48,7 +48,11 @@ export class VosFacturesClient {
       throw new Error(message + detail);
     }
 
-    return response.json() as Promise<T>;
+    try {
+      return await response.json() as T;
+    } catch {
+      throw new Error(`Réponse non-JSON reçue du serveur VosFactures (${response.status})`);
+    }
   }
 
   get<T>(path: string): Promise<T> {
