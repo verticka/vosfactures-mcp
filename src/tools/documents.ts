@@ -1,6 +1,6 @@
 import type { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { VosFacturesClient } from '../client.ts';
-import { reponseOk, reponseErreur, type ToolResult } from '../types.ts';
+import type { VosFacturesClient } from '../client.js';
+import { reponseOk, reponseErreur, type ToolResult } from '../types.js';
 
 const ENUM_TYPE_DOCUMENT = [
   'vat', 'estimate', 'correction', 'advance', 'final',

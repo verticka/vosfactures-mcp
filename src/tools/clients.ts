@@ -1,7 +1,7 @@
 // src/tools/clients.ts
 import type { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { VosFacturesClient } from '../client.ts';
-import { reponseOk, reponseErreur, type ToolResult } from '../types.ts';
+import type { VosFacturesClient } from '../client.js';
+import { reponseOk, reponseErreur, type ToolResult } from '../types.js';
 
 export const OUTILS_CLIENTS: Tool[] = [
   {
